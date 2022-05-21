@@ -14,14 +14,16 @@
             overflow: hidden; /* Hide scrollbars */
         }
     </style>
+    <script>
+    function searchBLE() {
+        navigator.bluetooth.requestDevice({ filters: [{ services: ['battery_service'] }] })
+        .then(device => { console.log(device); })
+        .catch(error => { console.error(error); });
+    }
+    </script>
 </head>
 <body>
-    <div id="root"></div>
+    <input type="button" onclick="searchBLE()">
 </body>
 </html>
 
-<script>
-navigator.bluetooth.requestDevice({ filters: [{ services: ['battery_service'] }] })
-.then(device => { console.log(device); })
-.catch(error => { console.error(error); });
-</script>
