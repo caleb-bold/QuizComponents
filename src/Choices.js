@@ -1,11 +1,13 @@
+import Component from "./Component.js";
+import Space from "./Space.js";
+
+
 /**
  * 'Choices' class denotes a set of objects that includes a choice, including number, icon, answer text, etc.
  * A 'Choices' object can have a parent object, which could be a 'Quiz' object.
  * A 'Choices' object can have several 'Choice' components.
  */
-
-
-class Choices extends Component {
+export default class Choices extends Component {
 
     m_objWideBox = null;
 

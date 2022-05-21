@@ -1,9 +1,12 @@
+import Component from "./Component.js";
+
+
 /**
  * 'Question' class denotes a set of objects that constructs a question, including a Q icon, question text, etc.
  * A 'Question' object can have a parent object that could be a 'Quiz' object.
  * A 'Question' object can have several components like icons, boxes, or text.
  */
-class Question extends Component {
+export default class Question extends Component {
     
     m_objWideBox = null;
 

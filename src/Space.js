@@ -1,9 +1,12 @@
+import Component from "./Component.js";
+
+
 /**
  * 'Space' class denotes a specific sized vertical space object that is the 'Inside' type of table object.
  * A 'Space' object can have a parent object that could be any 'Component' object.
  * A 'Space' object can not have any components as a child.
  */
-class Space extends Component {
+export default class Space extends Component {
 
     m_objInsideWideBox = null;
 

@@ -3,7 +3,7 @@
  */
 const FONT_STEP_SIZE = 0.1;
 
-class Component {
+export default class Component {
     /**
      * The parent object of the current object.
      * @type {Object}
@@ -266,4 +266,5 @@ class Component {
             td: objTd
         };
     }
-}
+};
+

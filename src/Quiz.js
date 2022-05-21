@@ -1,9 +1,12 @@
+import Component from "./Component.js";
+
+
 /**
  * 'Quiz' class denotes quiz components that include questions, choices, etc.
  * A 'Quiz' object can have a parent object, which could be a 'Page' object.
  * A 'Quiz' object can have several quiz components as children.
  */
-class Quiz extends Component {
+export default class Quiz extends Component {
 
     /**
      * A constructor.

@@ -1,9 +1,12 @@
+import Component from "./Component.js";
+
+
 /**
  * 'Choice' class denotes a set of objects that construct a choice, including number, icon, answer text, etc.
  * A 'Choice' object can have a parent object, which could be a 'Choices' object.
  * A 'Choice' object can have several components like a box, an icon, or a text.
  */
-class Choice extends Component {
+export default class Choice extends Component {
 
     m_objInsideWideBox = null;
 

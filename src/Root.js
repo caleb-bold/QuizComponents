@@ -1,9 +1,12 @@
+import Component from "./Component.js";
+
+
 /**
  * 'Root' class denotes a document object of a file that includes several pages.
  * A 'Root' object has no object as a parent.
  * A 'Root' object can have several pages as children.
  */
-class Root extends Component {
+export default class Root extends Component {
 
     /**
      * A constructor.
@@ -25,4 +28,5 @@ class Root extends Component {
         child.setParent(this, this.m_objParentDOM);
         super.appendChild(key, child);
     }
-}
+};
+

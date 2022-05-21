@@ -1,10 +1,13 @@
+import Component from "./Component.js";
+
+
 /**
  * 'Page' class denotes a layer object representing one of the several pages in a root document.
  * (Note that the 'Page' does not mean an HTML page or a website file.)
  * A 'Pages' object can have a 'Root' object as a parent.
  * A 'Pages' object can have several sections or components as children.
  */
-class Page extends Component {
+export default class Page extends Component {
 
     m_objLayer = null;
 
@@ -27,6 +30,10 @@ class Page extends Component {
 
     setParent(parent, parent_dom) {
         super.setParent(parent, parent_dom);
+    }
+
+    setBackgroundImage(url) {
+        this.m_objCurrentDOM.style.backgroundImage = "url(" + url + ")";
     }
 
     appendChild(key, child) {
