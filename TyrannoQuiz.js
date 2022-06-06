@@ -56,8 +56,9 @@ function handleCharacteristicValueChanged(event) {
     console.log(value);
     switch (value) {
         case 49:
+            let correct = new Image();
+            correct.setSrc("./img/correct.png");
             let id = 'answer' + answerCnt;
-            console.log('appendChild');
             root.appendChild(id, correct);
             setTimeout(() => { root.deleteChild(id); }, 1000);
             break;
