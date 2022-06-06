@@ -57,6 +57,7 @@ function handleCharacteristicValueChanged(event) {
     switch (value) {
         case 49:
             let id = 'answer' + answerCnt;
+            console.log('appendChild');
             root.appendChild(id, correct);
             setTimeout(() => { root.deleteChild(id); }, 1000);
             break;
