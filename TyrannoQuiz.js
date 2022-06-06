@@ -51,9 +51,22 @@ root.appendChild('page', page);
 root.appendChild('start', button);
 //root.appendChild('correct', correct);
 
+let prev = 48;
 function handleCharacteristicValueChanged(event) {
-    const value = event.target.value;
-    console.log(value.getUint8(0));
+    let value = event.target.value.getUint8(0);
+    console.log(value);
+    switch (value) {
+        case 49:
+            root.appendChild('correct', correct);
+            break;
+        case 50:
+            break;
+        case 48:
+            if (prev == 48)
+                root.deleteChild('correct');
+            break;
+    }
+    prev = value;
 }
 function searchBLE() {
     navigator.bluetooth.requestDevice({acceptAllDevices:true})
