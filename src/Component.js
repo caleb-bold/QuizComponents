@@ -64,6 +64,11 @@ export default class Component {
         this.#appendOnce();
     }
 
+    deleteChild(key, child) {
+        this.m_arrChildren[key].reset();
+        delete this.m_arrChildren[key];
+    }
+
     /**
      * Attach all children to the parent DOM object.
      * @type {Node}
@@ -174,6 +179,73 @@ export default class Component {
                 font_size = parseFloat(objTd.style.fontSize);
             }
         }
+    }
+
+    static createImage(width, height, position_x, position_y) {
+        let w = Component.getObjectWidth(width);
+        let h = Component.getObjectHeight(height);
+
+        let objImg = document.createElement('img');
+        objImg.style.position = 'absolute';
+        objImg.style.zIndex = String(Number.MAX_SAFE_INTEGER);
+        //objImg.style.width = w + 'px';
+        objImg.style.height = h + 'px';
+        objImg.style.left = Component.getObjectPositionX(position_x, h) + 'px';
+        objImg.style.top = Component.getObjectPositionY(position_y, h) + 'px';
+
+        window.addEventListener('resize', function(event) {
+            let w = Component.getObjectWidth(width);
+            let h = Component.getObjectHeight(height);
+            //objImg.style.width = w + 'px';
+            objImg.style.height = h + 'px';
+            objImg.style.left = Component.getObjectPositionX(position_x, h) + 'px';
+            objImg.style.top = Component.getObjectPositionY(position_y, h) + 'px';
+        }, true);
+
+        return {
+            img: objImg
+        };
+
+    }
+
+    static createButton(width, height, position_x, position_y, auto_font_size=false) {
+        let w = Component.getObjectWidth(width);
+        let h = Component.getObjectHeight(height);
+
+        let objButton = document.createElement('Button');
+        objButton.innerText = "Button";
+        objButton.textAlign = 'center';
+        objButton.verticalAlign = 'middle';
+        objButton.style.position = 'absolute';
+        objButton.style.zIndex = String(Number.MAX_SAFE_INTEGER);
+        objButton.style.width = w + 'px';
+        objButton.style.height = h + 'px';
+        objButton.style.left = Component.getObjectPositionX(position_x, w) + 'px';
+        objButton.style.top = Component.getObjectPositionY(position_y, h) + 'px';
+
+        let resizeId = null;
+
+        window.addEventListener('resize', function(event) {
+            let w = Component.getObjectWidth(width);
+            let h = Component.getObjectHeight(height);
+            objButton.style.width = w + 'px';
+            objButton.style.height = h + 'px';
+            objButton.style.left = Component.getObjectPositionX(position_x, w) + 'px';
+            objButton.style.top = Component.getObjectPositionY(position_y, h) + 'px';
+
+//            if (auto_font_size) {
+//                if (resizeId)
+//                    clearTimeout(resizeId);
+//
+//                resizeId = setTimeout(() => {
+//                    Component.adjustFontSize(objButton, objButton, height);
+//                }, 300);
+//            }
+        }, true);
+
+        return {
+            button: objButton
+        };
     }
 
     static createWideBox(height, position_y, auto_font_size=false) {

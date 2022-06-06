@@ -35,7 +35,7 @@ export default class Question extends Component {
     setText(text) {
         this.m_objWideBox.td.style.fontSize = Component.getObjectHeight(0) + 'px';
         this.m_objWideBox.td.style.fontWeight = '500';
-        this.m_objWideBox.td.innerText = text;
+        this.m_objWideBox.td.innerHTML = text;
         
         setTimeout(() => {
             Component.adjustFontSize(this.m_objWideBox.table, this.m_objWideBox.td, 10);

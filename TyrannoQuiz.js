@@ -4,10 +4,12 @@ import Quiz from "./src/Quiz.js";
 import Question from "./src/Question.js";
 import Choice from "./src/Choice.js";
 import Choices from "./src/Choices.js";
+import Button from "./src/Button.js";
+import Image from "./src/Image.js";
 
 
 let question = new Question();
-question.setText("1형식에 대한 설명으로 옳은 것을 고르시오.");
+question.setText("1형식에 대한 설명으로 옳지 <u>않은</u> 것을 고르시오.");
 
 let choice1 = new Choice();
 choice1.setText("주어자리에는 명사가 들어간다");
@@ -35,5 +37,41 @@ let page = new Page();
 page.appendChild('quiz', quiz);
 page.setBackgroundImage('./img/craftpix-00711-free-beach-2d-game-backgrounds/PNG/game_background_1/game_background_1.png');
 
+
+let correct = new Image();
+correct.setSrc("./img/correct.png");
+let wrong = new Image();
+wrong.setSrc("./img/wrong.png");
+
+let button = new Button();
+button.setText("START");
+
 let root = new Root(document.getElementById('root'));
 root.appendChild('page', page);
+root.appendChild('start', button);
+//root.appendChild('correct', correct);
+
+function handleCharacteristicValueChanged(event) {
+    const value = event.target.value;
+    console.log(value);
+}
+function searchBLE() {
+    navigator.bluetooth.requestDevice({acceptAllDevices:true})
+    .then(device => {
+        return device.gatt.connect();
+    }).then(server => {
+        return server.getPrimaryService(0xFFE0);
+    }).then(service => {
+        return service.getCharacteristic(0xFFE1);
+    }).then(characteristic => {
+        return characteristic.startNotifications();
+    }).then(characteristic => {
+        characteristic.addEventListener('characteristicvaluechanged', handleCharacteristicValueChanged);
+        console.log('Notifications have been started.');
+    }).catch(error => { console.error(error); });
+}
+function clickStart() {
+    searchBLE();
+    root.deleteChild('start');
+}
+button.setAction("click", clickStart);
