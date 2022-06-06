@@ -60,7 +60,7 @@ function handleCharacteristicValueChanged(event) {
             correct.setSrc("./img/correct.png");
             let id = 'answer' + answerCnt;
             root.appendChild(id, correct);
-            setTimeout(() => { root.deleteChild(id); }, 1000);
+            setTimeout(() => { root.deleteChild(id); }, 500);
             break;
         case 50:
             //root.appendChild('answer', wrong);
