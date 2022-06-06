@@ -53,7 +53,7 @@ root.appendChild('start', button);
 
 function handleCharacteristicValueChanged(event) {
     const value = event.target.value;
-    console.log(value);
+    console.log(value.getUint8(0));
 }
 function searchBLE() {
     navigator.bluetooth.requestDevice({acceptAllDevices:true})
