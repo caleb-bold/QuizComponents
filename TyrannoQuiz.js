@@ -49,24 +49,24 @@ button.setText("START");
 let root = new Root(document.getElementById('root'));
 root.appendChild('page', page);
 root.appendChild('start', button);
-//root.appendChild('correct', correct);
 
-let prev = 48;
+let answerCnt = 0;
 function handleCharacteristicValueChanged(event) {
     let value = event.target.value.getUint8(0);
     console.log(value);
     switch (value) {
         case 49:
-            root.appendChild('correct', correct);
+            root.appendChild('answer' + answerCnt, correct);
+            setTimeout(() => { root.deleteChild('answer' + answerCnt); }, 1000);
             break;
         case 50:
+            //root.appendChild('answer', wrong);
             break;
         case 48:
-            if (prev == 48)
-                root.deleteChild('correct');
+            //root.deleteChild('answer');
             break;
     }
-    prev = value;
+    answerCnt++;
 }
 function searchBLE() {
     navigator.bluetooth.requestDevice({acceptAllDevices:true})
