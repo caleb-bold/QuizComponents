@@ -12,7 +12,7 @@ export default class Progress extends Component {
      */
     constructor() {
         super();
-        this.m_objBox = Component.createBox(40, 10, 0, -30, true);
+        this.m_objBox = Component.createBox(20, 10, -30, -30, true);
         this.m_objBox.table.style.backgroundColor = '#777777';
         this.m_objCurrentDOM = this.m_objBox.table;
     }

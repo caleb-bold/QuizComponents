@@ -34,8 +34,25 @@ export default class Image extends Component {
      * Set text of the question
      * @param {String} text
      */
+    m_bLoaded = false;
+    onLoad(e) {
+        e.currentTarget.myObj.m_bLoaded = e.currentTarget.myObj.m_objImage.img.complete && e.currentTarget.myObj.m_objImage.img.naturalHeight !== 0;
+    }
     setSrc(img_url) {
+        this.m_bLoaded = false;
+        this.m_objImage.img.style.visibility = 'hidden';
         this.m_objImage.img.src = img_url;
+        this.m_objImage.img.addEventListener("load", this.onLoad);
+        this.m_objImage.img.myObj = this;
+    }
+    isLoaded() {
+        return this.m_bLoaded;
+    }
+    setVisible() {
+        this.m_objImage.img.style.visibility = 'visible';
+    }
+    setInvisible() {
+        this.m_objImage.img.style.visibility = 'hidden';
     }
 
     setAction(key, func) {

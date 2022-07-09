@@ -186,6 +186,7 @@ export default class Component {
         let h = Component.getObjectHeight(size.h);
 
         let objImg = document.createElement('img');
+        objImg.style.visibility = 'hidden';
         objImg.style.position = 'absolute';
         objImg.style.zIndex = String(Number.MAX_SAFE_INTEGER);
         //objImg.style.width = w + 'px';

@@ -139,6 +139,18 @@ function nextCase() {
 }
 
 
+function choicesLoaded() {
+    if (choice0.isLoaded() && choice1.isLoaded())
+    {
+        choice0.setVisible();
+        choice1.setVisible();
+        window.addEventListener("keydown", chooseAnswer);
+    }
+    else
+        setTimeout(choicesLoaded, 10);
+}
+
+
 function chooseAnswer(e) {
     if (e.keyCode != 48 && e.keyCode != 49) return;
 
@@ -152,12 +164,17 @@ function chooseAnswer(e) {
         correctOrWrong.setSrc("./img/correct.png");
     else
         correctOrWrong.setSrc("./img/wrong.png");
+    correctOrWrong.setVisible();
     root.appendChild(id, correctOrWrong);
     setTimeout(() => {
         root.deleteChild(id);
+        choice0.setInvisible();
+        choice1.setInvisible();
+
         if (nextCase())
-            window.addEventListener("keydown", chooseAnswer);
-    }, 500);
+            //window.addEventListener("keydown", chooseAnswer);
+            setTimeout(choicesLoaded, 10);
+    }, 250);
 }
 
 
@@ -168,7 +185,7 @@ function removeQuestion() {
     quiz.appendChild('choice1', choice1);
 
     nextCase();
-    window.addEventListener("keydown", chooseAnswer);
+    setTimeout(choicesLoaded, 300);
 }
 
 
