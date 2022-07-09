@@ -41,4 +41,10 @@ export default class Question extends Component {
             Component.adjustFontSize(this.m_objWideBox.table, this.m_objWideBox.td, 10);
         }, 100);
     }
+
+    adjustFontSize() {
+        setTimeout(() => {
+            Component.adjustFontSize(this.m_objWideBox.table, this.m_objWideBox.td, 10);
+        }, 100);
+    }
 }

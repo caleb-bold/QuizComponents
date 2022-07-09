@@ -1,7 +1,7 @@
 /**
  * This class should be split as 'Component' and 'ComponentManager' in order to keep the Single Responsibility Principle.
  */
-const FONT_STEP_SIZE = 0.1;
+const FONT_STEP_SIZE = 1;
 
 export default class Component {
     /**
@@ -181,25 +181,25 @@ export default class Component {
         }
     }
 
-    static createImage(width, height, position_x, position_y) {
-        let w = Component.getObjectWidth(width);
-        let h = Component.getObjectHeight(height);
+    static createImage(size, position) {
+        let w = Component.getObjectWidth(size.w);
+        let h = Component.getObjectHeight(size.h);
 
         let objImg = document.createElement('img');
         objImg.style.position = 'absolute';
         objImg.style.zIndex = String(Number.MAX_SAFE_INTEGER);
         //objImg.style.width = w + 'px';
         objImg.style.height = h + 'px';
-        objImg.style.left = Component.getObjectPositionX(position_x, h) + 'px';
-        objImg.style.top = Component.getObjectPositionY(position_y, h) + 'px';
+        objImg.style.left = Component.getObjectPositionX(position.x, h) + 'px';
+        objImg.style.top = Component.getObjectPositionY(position.y, h) + 'px';
 
         window.addEventListener('resize', function(event) {
-            let w = Component.getObjectWidth(width);
-            let h = Component.getObjectHeight(height);
+            let w = Component.getObjectWidth(size.w);
+            let h = Component.getObjectHeight(size.h);
             //objImg.style.width = w + 'px';
             objImg.style.height = h + 'px';
-            objImg.style.left = Component.getObjectPositionX(position_x, h) + 'px';
-            objImg.style.top = Component.getObjectPositionY(position_y, h) + 'px';
+            objImg.style.left = Component.getObjectPositionX(position.x, h) + 'px';
+            objImg.style.top = Component.getObjectPositionY(position.y, h) + 'px';
         }, true);
 
         return {
@@ -245,6 +245,54 @@ export default class Component {
 
         return {
             button: objButton
+        };
+    }
+
+    static createBox(width, height, position_x, position_y, auto_font_size=false) {
+        let w = Component.getObjectWidth(width);
+        let h = Component.getObjectHeight(height);
+
+        let objTd = document.createElement('td');
+        objTd.style.textAlign = 'center';
+        objTd.style.verticalAlign = 'middle';
+
+        let objTr = document.createElement('tr');
+        objTr.append(objTd);
+
+        let objTable = document.createElement('table');
+        objTable.style.position = 'absolute';
+        //objTable.style.visibility = 'hidden';
+        objTable.style.zIndex = String(Number.MAX_SAFE_INTEGER);
+        objTable.style.width = w + 'px';
+        objTable.style.height = h + 'px';
+        objTable.style.left = Component.getObjectPositionX(position_x, w) + 'px';
+        objTable.style.top = Component.getObjectPositionY(position_y, h) + 'px';
+        objTable.append(objTr);
+
+        let resizeId = null;
+
+        window.addEventListener('resize', function(event) {
+            let w = Component.getObjectWidth(width);
+            let h = Component.getObjectHeight(height);
+            objTable.style.width = w + 'px';
+            objTable.style.height = h + 'px';
+            objTable.style.left = Component.getObjectPositionX(position_x, w) + 'px';
+            objTable.style.top = Component.getObjectPositionY(position_y, h) + 'px';
+
+            if (auto_font_size) {
+                if (resizeId)
+                    clearTimeout(resizeId);
+
+                resizeId = setTimeout(() => {
+                    Component.adjustFontSize(objTable, objTd, height);
+                }, 300);
+            }
+        }, true);
+
+        return {
+            table: objTable,
+            tr: objTr,
+            td: objTd
         };
     }
 
