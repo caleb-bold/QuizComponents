@@ -51,8 +51,9 @@ export default class ImageLoader
             let arrChoices = {};
             arrChoices.correct = choice0;
             arrChoices.wrong = choice1;
+            console.log(arrChoices);
             this.m_imageQueue.push(arrChoices);
-            console.log(this.m_imageQueue);
+            //console.log(this.m_imageQueue);
         }
     }
 }
