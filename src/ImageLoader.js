@@ -48,9 +48,9 @@ export default class ImageLoader
             choice0.setSrc("./img/choices/1.correct." + this.m_cases[i][0] + ".png");
             choice1.setSrc("./img/choices/1.wrong." + this.m_cases[i][1] + ".png");
             
-            let arrChoices = [];
-            arrChoices.push(choice0);
-            arrChoices.push(choice1);
+            let arrChoices = {};
+            arrChoices.correct = choice0;
+            arrChoices.wrong = choice1;
             this.m_imageQueue.push(arrChoices);
             console.log(this.m_imageQueue);
         }
