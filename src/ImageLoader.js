@@ -52,7 +52,7 @@ export default class ImageLoader
             arrChoices.push(choice0);
             arrChoices.push(choice1);
             this.m_imageQueue.push(arrChoices);
-            console.log(arrChoices);
+            console.log(this.m_imageQueue);
         }
     }
 }
