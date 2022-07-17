@@ -14,7 +14,7 @@ export default class ImageLoader
     m_imageQueue = [];
     
     
-    static preloadSize() { return 5; }
+    static get preloadSize() { return 5; }
     
     
     /**
@@ -38,10 +38,10 @@ export default class ImageLoader
     }
     
     addCases(cases) {
-        this.m_cases = _.deepClone(cases);
+        this.m_cases = cases;
         
         for (let i = 0; i < cases.length; i++) {
-            if (i == ImageLoader.preloadSize()) break;
+            if (i == ImageLoader.preloadSize) break;
             
             let choice0 = new Image();
             let choice1 = new Image();
