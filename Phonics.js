@@ -7,6 +7,7 @@ import Choices from "./src/Choices.js";
 import Button from "./src/Button.js";
 import Image from "./src/Image.js";
 import Progress from "./src/Progress.js";
+import ImageLoader from "./src/ImageLoader.js";
 
 
 let progress = new Progress();
