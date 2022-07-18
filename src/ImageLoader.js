@@ -40,7 +40,9 @@ export default class ImageLoader
     addCases(cases) {
         this.m_cases = cases;
         
-        for (let i = 0; i < cases.length; i++) {
+        let cnt = 0;
+        
+        for (let i = 0; i < this.m_cases.length; i++) {
             if (i == ImageLoader.preloadSize) break;
             
             let choice0 = new Image();
@@ -51,9 +53,52 @@ export default class ImageLoader
             let arrChoices = {};
             arrChoices.correct = choice0;
             arrChoices.wrong = choice1;
-            console.log(arrChoices);
+            //console.log(arrChoices);
             this.m_imageQueue.push(arrChoices);
             //console.log(this.m_imageQueue);
+            
+            cnt++;
         }
+        
+        console.log(this.m_cases);
+        
+        for (let i = 0; i < cnt; i++)
+            this.m_cases.shift();
+         
+        console.log(this.m_cases);
+    }
+    
+    popCase() {
+        
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
