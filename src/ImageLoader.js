@@ -67,19 +67,16 @@ export default class ImageLoader
         let choices = this.m_imageQueue[0]; //.shift();
         if (choices.correct.isLoaded()==1 && choices.wrong.isLoaded()==1) {
             if (this.m_cases.length > 0) {
-                console.log(this.m_cases.shift());
-            }
-            /*if (this.m_cases.length > 0) {
-                let case = this.m_cases.shift();
+                let cases = this.m_cases.shift();
                 let choice0 = new Image();
                 let choice1 = new Image();
-                choice0.setSrc("./img/choices/1.correct." + case[0] + ".png");
-                choice1.setSrc("./img/choices/1.wrong." + case[1] + ".png");
+                choice0.setSrc("./img/choices/1.correct." + cases[0] + ".png");
+                choice1.setSrc("./img/choices/1.wrong." + cases[1] + ".png");
                 let arrChoices = {};
                 arrChoices.correct = choice0;
                 arrChoices.wrong = choice1;
                 this.m_imageQueue.push(arrChoices);
-            }*/
+            }
 
             console.log("success");
             return this.m_imageQueue.shift();
