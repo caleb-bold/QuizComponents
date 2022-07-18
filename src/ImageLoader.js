@@ -55,6 +55,8 @@ export default class ImageLoader
             this.m_imageQueue.push(arrChoices);
             console.log(this.m_imageQueue[0].correct.m_objImage.img);
             console.log(this.m_imageQueue[0].wrong.m_objImage.img);
+            console.log(arrChoices["correct"].m_objImage.img);
+            console.log(arrChoices["wrong"].m_objImage.img);
             
             cnt++;
         }
