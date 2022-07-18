@@ -67,6 +67,8 @@ export default class ImageLoader
         let choices = this.m_imageQueue[0]; //.shift();
         if (choices.correct.isLoaded()==1 && choices.wrong.isLoaded()==1) {
             if (this.m_cases.length > 0) {
+                let case = this.m_cases.shift();
+
             }
             /*if (this.m_cases.length > 0) {
                 let case = this.m_cases.shift();
