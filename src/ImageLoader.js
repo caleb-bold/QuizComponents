@@ -55,6 +55,7 @@ export default class ImageLoader
             arrChoices.correct = choice0;
             arrChoices.wrong = choice1;
             this.m_imageQueue.push(arrChoices);
+            console.log(arrChoices);
             
             cnt++;
         }
