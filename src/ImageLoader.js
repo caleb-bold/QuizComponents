@@ -86,7 +86,7 @@ export default class ImageLoader
             }
 
             console.log("success");
-            return this.m_imageQueue[0]; //.shift();
+            return this.m_imageQueue.shift();
         } else {
             console.log("failed");
             return null; 
