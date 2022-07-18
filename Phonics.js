@@ -129,6 +129,9 @@ function nextCase() {
     }
     
     let choices = imageLoader.popCase();
+    if (choices == null)
+        return false;
+ 
     console.log(choices.correct.m_objImage.img.src);
     console.log(choices.wrong.m_objImage.img.src);
     //console.log(imageLoader.m_imageQueue);
@@ -195,8 +198,7 @@ function chooseAnswer(e) {
         choice0.setInvisible();
         choice1.setInvisible();
 
-        if (nextCase())
-            //window.addEventListener("keydown", chooseAnswer);
+        while (!nextCase())
             setTimeout(choicesLoaded, 10);
     }, 250);
 }
