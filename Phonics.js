@@ -198,8 +198,8 @@ function chooseAnswer(e) {
         choice0.setInvisible();
         choice1.setInvisible();
 
-        while (!nextCase())
-            setTimeout(choicesLoaded, 10);
+        while (!nextCase());
+        setTimeout(choicesLoaded, 10);
     }, 250);
 }
 
@@ -210,7 +210,7 @@ function removeQuestion() {
     quiz.appendChild('choice0', choice0);
     quiz.appendChild('choice1', choice1);
 
-    nextCase();
+    while (!nextCase());
     setTimeout(choicesLoaded, 300);
 }
 
