@@ -66,7 +66,7 @@ export default class ImageLoader
     popCase() {
         let choices = this.m_imageQueue[0]; //.shift();
         if (choices.correct.isLoaded()==1 && choices.wrong.isLoaded()==1) {
-            //if (this.m_cases.length > 0) {
+            /*if (this.m_cases.length > 0) {
                 let case = this.m_cases.shift();
                 let choice0 = new Image();
                 let choice1 = new Image();
@@ -76,7 +76,7 @@ export default class ImageLoader
                 arrChoices.correct = choice0;
                 arrChoices.wrong = choice1;
                 this.m_imageQueue.push(arrChoices);
-            //}
+            }*/
 
             console.log("success");
             return this.m_imageQueue.shift();
