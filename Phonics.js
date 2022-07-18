@@ -199,7 +199,10 @@ function chooseAnswer(e) {
         choice0.setInvisible();
         choice1.setInvisible();
         
-        if (caseIdx == total) return;
+        if (caseIdx == total) {
+            progress.setProgress(caseIdx, total);
+            return;
+        } 
 
         while (!nextCase());
         setTimeout(choicesLoaded, 10);
