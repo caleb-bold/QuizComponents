@@ -103,6 +103,7 @@ const cartesian = (...a) => a.reduce((a, b) => a.flatMap(d => b.map(e => [d, e].
 let cases = cartesian(correctChoices, wrongChoices);
 shuffle(cases);
 let case0 = cases[0];
+let total = cases.length;
 
 let imageLoader = new ImageLoader();
 imageLoader.addCases(cases);
@@ -121,7 +122,7 @@ let temp_size = 30;
 let correctCount = 0;
 
 function nextCase() {
-    progress.setProgress(caseIdx, cases.length);
+    progress.setProgress(caseIdx, total);
     
     if (caseIdx == cases.length) {
         //alert('끝.. 다음 문제 또는 스코어 표시');
@@ -218,7 +219,7 @@ function removeQuestion() {
 function clickStart() {
     //searchBLE();
 
-    progress.setProgress(0, cases.length);
+    progress.setProgress(0, total);
     root.deleteChild('start');
     page.appendChild('quiz', quiz);
     question.adjustFontSize();
