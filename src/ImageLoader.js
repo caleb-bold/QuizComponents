@@ -53,10 +53,10 @@ export default class ImageLoader
             arrChoices["correct"].setSrc("./img/choices/1.correct." + this.m_cases[i][0] + ".png");
             arrChoices["wrong"].setSrc("./img/choices/1.wrong." + this.m_cases[i][1] + ".png");
             this.m_imageQueue.push(arrChoices);
-            console.log(this.m_imageQueue[i].correct.m_objImage.img);
-            console.log(this.m_imageQueue[i].wrong.m_objImage.img);
-            console.log(arrChoices["correct"].m_objImage.img);
-            console.log(arrChoices["wrong"].m_objImage.img);
+            //console.log(this.m_imageQueue[i].correct.m_objImage.img);
+            //console.log(this.m_imageQueue[i].wrong.m_objImage.img);
+            //console.log(arrChoices["correct"].m_objImage.img);
+            //console.log(arrChoices["wrong"].m_objImage.img);
             
             cnt++;
         }
@@ -86,7 +86,7 @@ export default class ImageLoader
             }
 
             console.log("success");
-            return this.m_imageQueue.shift();
+            return this.m_imageQueue[0]; //.shift();
         } else {
             console.log("failed");
             return null; 

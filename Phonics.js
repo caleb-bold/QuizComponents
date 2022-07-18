@@ -124,9 +124,9 @@ function nextCase() {
         return false;
     }
     
-    //let choices = imageLoader.popCase();
-    //console.log(choices);
-    console.log(imageLoader.m_imageQueue);
+    let choices = imageLoader.popCase();
+    console.log(choices);
+    //console.log(imageLoader.m_imageQueue);
 
     choice0.setSrc("./img/choices/1.correct." + cases[caseIdx][0] + ".png");
     choice1.setSrc("./img/choices/1.wrong." + cases[caseIdx][1] + ".png");
