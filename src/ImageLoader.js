@@ -47,13 +47,11 @@ export default class ImageLoader
             
             console.log(this.m_cases[i]);
             
-            let choice0 = new Image();
-            let choice1 = new Image();
-            choice0.setSrc("./img/choices/1.correct." + this.m_cases[i][0] + ".png");
-            choice1.setSrc("./img/choices/1.wrong." + this.m_cases[i][1] + ".png");            
             let arrChoices = {};
-            arrChoices.correct = choice0;
-            arrChoices.wrong = choice1;
+            arrChoices.correct = new Image();
+            arrChoices.wrong = new Image();
+            arrChoices.correct.setSrc("./img/choices/1.correct." + this.m_cases[i][0] + ".png");
+            arrChoices.wrong.setSrc("./img/choices/1.wrong." + this.m_cases[i][1] + ".png");
             this.m_imageQueue.push(arrChoices);
             console.log(arrChoices);
             
