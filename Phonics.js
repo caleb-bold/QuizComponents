@@ -175,7 +175,7 @@ function choicesLoaded() {
         window.addEventListener("keydown", chooseAnswer);
     }
     else
-        setTimeout(choicesLoaded, 10);
+        setTimeout(choicesLoaded, 1);
 }
 
 
@@ -205,7 +205,7 @@ function chooseAnswer(e) {
         } 
 
         while (!nextCase());
-        setTimeout(choicesLoaded, 10);
+        setTimeout(choicesLoaded, 1);
     }, 250);
 }
 
