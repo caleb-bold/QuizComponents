@@ -60,16 +60,18 @@ export default class ImageLoader
             cnt++;
         }
         
-        console.log(this.m_cases.length);
-        
         for (let i = 0; i < cnt; i++)
             this.m_cases.shift();
-         
-        console.log(this.m_cases.length);
     }
     
     popCase() {
-        
+        let choices = this.m_imageQueue.shift();
+        console.log(choices.correct);
+        console.log(choices.wrong);
+        return;
+        //let case = this.m_cases.shift();
+        //console.log(case);
+        //return ;
     }
 }
 

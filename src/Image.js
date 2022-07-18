@@ -34,18 +34,31 @@ export default class Image extends Component {
      * Set text of the question
      * @param {String} text
      */
-    m_bLoaded = false;
+    m_bLoaded = 0;
     onLoad(e) {
-        e.currentTarget.myObj.m_bLoaded = e.currentTarget.myObj.m_objImage.img.complete && e.currentTarget.myObj.m_objImage.img.naturalHeight !== 0;
+        if (e.currentTarget.myObj.m_objImage.img.complete && e.currentTarget.myObj.m_objImage.img.naturalHeight !== 0)
+            e.currentTarget.myObj.m_bLoaded = 1;
+        else
+            e.currentTarget.myObj.m_bLoaded = -1;
+    }
+    onError(e) {
+        e.currentTarget.myObj.m_bLoaded = -1;
     }
     setSrc(img_url) {
         this.m_bLoaded = false;
         this.m_objImage.img.style.visibility = 'hidden';
         this.m_objImage.img.src = img_url;
         this.m_objImage.img.addEventListener("load", this.onLoad);
+        this.m_objImage.img.addEventListener("error", this.onError);
         this.m_objImage.img.myObj = this;
     }
     isLoaded() {
+        if (this.m_bLoaded == 0)
+            console.log("not loaded");
+        if (this.m_bLoaded == 1)
+            console.log("loaded");
+        if (this.m_bLoaded == -1)
+            console.log("loading failed");
         return this.m_bLoaded;
     }
     setVisible() {
