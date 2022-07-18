@@ -45,6 +45,8 @@ export default class ImageLoader
         for (let i = 0; i < this.m_cases.length; i++) {
             if (i == ImageLoader.preloadSize) break;
             
+            console.log(this.m_cases[i]);
+            
             let choice0 = new Image();
             let choice1 = new Image();
             choice0.setSrc("./img/choices/1.correct." + this.m_cases[i][0] + ".png");
