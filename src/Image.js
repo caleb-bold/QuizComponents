@@ -36,7 +36,6 @@ export default class Image extends Component {
      */
     m_bLoaded = 0;
     onLoad(e) {
-        console.log(e.currentTarget.myObj.m_objImage.img);
         if (e.currentTarget.myObj.m_objImage.img.complete && e.currentTarget.myObj.m_objImage.img.naturalHeight !== 0)
             e.currentTarget.myObj.m_bLoaded = 1;
         else
@@ -46,7 +45,6 @@ export default class Image extends Component {
         e.currentTarget.myObj.m_bLoaded = -1;
     }
     setSrc(img_url) {
-        console.log(img_url);
         this.m_bLoaded = false;
         this.m_objImage.img.style.visibility = 'hidden';
         this.m_objImage.img.src = img_url;
