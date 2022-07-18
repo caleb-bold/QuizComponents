@@ -45,6 +45,7 @@ export default class Image extends Component {
         e.currentTarget.myObj.m_bLoaded = -1;
     }
     setSrc(img_url) {
+        console.log(img_url);
         this.m_bLoaded = false;
         this.m_objImage.img.style.visibility = 'hidden';
         this.m_objImage.img.src = img_url;
