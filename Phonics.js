@@ -167,15 +167,10 @@ function nextCase() {
 }
 
 
-function choicesLoaded() {
-    if (choice0.isLoaded() && choice1.isLoaded())
-    {
-        choice0.setVisible();
-        choice1.setVisible();
-        window.addEventListener("keydown", chooseAnswer);
-    }
-    else
-        setTimeout(choicesLoaded, 1);
+function waitKeyDown() {
+    choice0.setVisible();
+    choice1.setVisible();
+    window.addEventListener("keydown", chooseAnswer);
 }
 
 
@@ -203,7 +198,7 @@ function chooseAnswer(e) {
         if (caseIdx == total) return;
 
         while (!nextCase());
-        setTimeout(choicesLoaded, 1);
+        waitKeyDown();
     }, 250);
 }
 
@@ -215,7 +210,7 @@ function removeQuestion() {
     quiz.appendChild('choice1', choice1);
 
     while (!nextCase());
-    setTimeout(choicesLoaded, 300);
+    setTimeout(waitKeyDown, 300);
 }
 
 
