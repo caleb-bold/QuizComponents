@@ -36,6 +36,7 @@ export default class Image extends Component {
      */
     m_bLoaded = 0;
     onLoad(e) {
+        console.log(e.currentTarget.myObj.m_objImage.img);
         if (e.currentTarget.myObj.m_objImage.img.complete && e.currentTarget.myObj.m_objImage.img.naturalHeight !== 0)
             e.currentTarget.myObj.m_bLoaded = 1;
         else
