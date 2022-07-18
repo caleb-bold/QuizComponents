@@ -55,9 +55,7 @@ export default class ImageLoader
             let arrChoices = {};
             arrChoices.correct = choice0;
             arrChoices.wrong = choice1;
-            //console.log(arrChoices);
             this.m_imageQueue.push(arrChoices);
-            //console.log(this.m_imageQueue);
             
             cnt++;
         }
@@ -68,9 +66,13 @@ export default class ImageLoader
     
     popCase() {
         let choices = this.m_imageQueue[0]; //.shift();
-        console.log(choices.correct.isLoaded());
-        console.log(choices.wrong.isLoaded());
-        return this.m_imageQueue.shift();
+        if (choices.correct.isLoaded() && console.log(choices.wrong.isLoaded()) {
+            console.log("success");
+            return this.m_imageQueue.shift();
+        } else {
+            console.log("failed");
+            return null; 
+        } 
     }
 }
 
