@@ -68,11 +68,9 @@ export default class ImageLoader
     
     popCase() {
         let choices = this.m_imageQueue[0]; //.shift();
-        console.log(choices.correct);
-        console.log(choices.wrong);
-        //let case = this.m_cases.shift();
-        console.log(this.m_cases[0]);
-        //return this.m_imageQueue.shift();
+        console.log(choices.correct.isLoaded());
+        console.log(choices.wrong.isLoaded());
+        return this.m_imageQueue.shift();
     }
 }
 
