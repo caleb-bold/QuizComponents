@@ -104,7 +104,8 @@ let cases = cartesian(correctChoices, wrongChoices);
 shuffle(cases);
 let imageLoader = new ImageLoader();
 imageLoader.addCases(cases);
-imageLoader.popCase();
+
+setTimeout(() => { imageLoader.popCase(); }, 1000);
 
 
 let caseIdx = 0;
