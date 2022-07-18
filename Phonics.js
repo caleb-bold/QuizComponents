@@ -122,7 +122,7 @@ let correctCount = 0;
 
 function nextCase() {
     progress.setProgress(caseIdx, cases.length);
-
+    
     if (caseIdx == cases.length) {
         //alert('끝.. 다음 문제 또는 스코어 표시');
         return false;
@@ -132,9 +132,18 @@ function nextCase() {
     console.log(choices.correct.m_objImage.img.src);
     console.log(choices.wrong.m_objImage.img.src);
     //console.log(imageLoader.m_imageQueue);
+    
+    quiz.deleteChild("choice0");
+    quiz.deleteChild("choice1");
+    
+    choice0 = choices.correct;
+    choice1 = choices.wrong;
+    
+    quiz.appendChild("choice0", choice0);
+    quiz.appendChild("choice1", choice1);
 
-    choice0.setSrc("./img/choices/1.correct." + cases[caseIdx][0] + ".png");
-    choice1.setSrc("./img/choices/1.wrong." + cases[caseIdx][1] + ".png");
+    //choice0.setSrc("./img/choices/1.correct." + cases[caseIdx][0] + ".png");
+    //choice1.setSrc("./img/choices/1.wrong." + cases[caseIdx][1] + ".png");
 
     answerIdx = Math.round(Math.random());
     if(answerIdx == 0) {
