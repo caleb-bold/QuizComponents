@@ -198,6 +198,8 @@ function chooseAnswer(e) {
         root.deleteChild(id);
         choice0.setInvisible();
         choice1.setInvisible();
+        
+        if (caseIdx == total) return;
 
         while (!nextCase());
         setTimeout(choicesLoaded, 10);
