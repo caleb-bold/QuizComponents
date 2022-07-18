@@ -64,6 +64,11 @@ export default class ImageLoader
     }
     
     popCase() {
+        if (this.m_imageQueue.length <= 0) {
+            console.log("empty image queue");
+            return null;
+        }
+         
         let choices = this.m_imageQueue[0]; //.shift();
         if (choices.correct.isLoaded()==1 && choices.wrong.isLoaded()==1) {
             if (this.m_cases.length > 0) {
