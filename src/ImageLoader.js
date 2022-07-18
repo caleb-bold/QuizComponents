@@ -14,7 +14,7 @@ export default class ImageLoader
     m_imageQueue = [];
     
     
-    static get preloadSize() { return 5; }
+    static get preloadSize() { return 10; }
     
     
     /**

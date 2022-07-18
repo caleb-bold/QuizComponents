@@ -105,8 +105,8 @@ shuffle(cases);
 let imageLoader = new ImageLoader();
 imageLoader.addCases(cases);
 
-imageLoader.popCase();
-setTimeout(() => { imageLoader.popCase(); }, 1000);
+//imageLoader.popCase();
+//setTimeout(() => { imageLoader.popCase(); }, 1000);
 
 
 let caseIdx = 0;
@@ -123,6 +123,9 @@ function nextCase() {
         //alert('끝.. 다음 문제 또는 스코어 표시');
         return false;
     }
+    
+    let choices = imageLoader.popCase();
+    console.log(choices);
 
     choice0.setSrc("./img/choices/1.correct." + cases[caseIdx][0] + ".png");
     choice1.setSrc("./img/choices/1.wrong." + cases[caseIdx][1] + ".png");
