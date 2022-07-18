@@ -129,7 +129,8 @@ function nextCase() {
     }
     
     let choices = imageLoader.popCase();
-    console.log(choices);
+    console.log(choices.correct.m_objImage.img.src);
+    console.log(choices.wrong.m_objImage.img.src);
     //console.log(imageLoader.m_imageQueue);
 
     choice0.setSrc("./img/choices/1.correct." + cases[caseIdx][0] + ".png");
