@@ -69,7 +69,7 @@ export default class ImageLoader
         console.log(choices.correct);
         console.log(choices.wrong);
         //let case = this.m_cases.shift();
-        //console.log(case);
+        console.log(this.m_cases[0]);
         //return this.m_imageQueue.shift();
     }
 }
