@@ -105,6 +105,8 @@ shuffle(cases);
 let imageLoader = new ImageLoader();
 imageLoader.addCases(cases);
 
+console.log(cases);
+
 //imageLoader.popCase();
 //setTimeout(() => { imageLoader.popCase(); }, 1000);
 
