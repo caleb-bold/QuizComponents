@@ -122,7 +122,7 @@ let temp_size = 30;
 let correctCount = 0;
 
 function nextCase() {
-    progress.setProgress(caseIdx, total);
+    //progress.setProgress(caseIdx, total);
     
     if (caseIdx == cases.length) {
         //alert('끝.. 다음 문제 또는 스코어 표시');
@@ -199,10 +199,8 @@ function chooseAnswer(e) {
         choice0.setInvisible();
         choice1.setInvisible();
         
-        if (caseIdx == total) {
-            progress.setProgress(caseIdx, total);
-            return;
-        } 
+        progress.setProgress(caseIdx, total);
+        if (caseIdx == total) return;
 
         while (!nextCase());
         setTimeout(choicesLoaded, 1);
