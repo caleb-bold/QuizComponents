@@ -174,12 +174,19 @@ function waitKeyDown() {
 }
 
 
+let stateKeyUp = true;
+function waitKeyUp() {
+    stateKeyUp = true;
+}
+
+
 function chooseAnswer(e) {
     if (e.keyCode != 48 && e.keyCode != 49) return;
-
+    //console.log(e.keyCode);
+    //console.log(answerIdx);
     window.removeEventListener("keydown", chooseAnswer);
-    console.log(e.keyCode);
-    console.log(answerIdx);
+    stateKeyUp = false;
+    window.addEventListener("keyup", waitKeyUp);
 
     let id = 'answer' + caseIdx;
     let correctOrWrong = new Image();
@@ -198,6 +205,7 @@ function chooseAnswer(e) {
         if (caseIdx == total) return;
 
         while (!nextCase());
+        while (!stateKeyUp);
         waitKeyDown();
     }, 250);
 }
