@@ -207,7 +207,7 @@ function chooseAnswer(e) {
         while (!nextCase());
         while (!stateKeyUp);
         waitKeyDown();
-    }, 250);
+    }, 500);
 }
 
 
