@@ -194,7 +194,7 @@ let timeStart = 0;
 function waitKeyUp() {
     let timeElapsed = new Date();
     timeElapsed -= timeStart;
-    if (stateKeyUp || timeElapsed > 1000)
+    if (stateKeyUp) // || timeElapsed > 1000)
         waitKeyDown();
     else
         setTimeout(waitKeyUp, 100); 
