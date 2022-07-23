@@ -254,6 +254,8 @@ function clickStart() {
     page.appendChild('quiz', quiz);
     question.adjustFontSize();
     progress.adjustFontSize();
+    
+    window.removeEventListener("keyup", clickStart);
 
     setTimeout(() => {
         removeQuestion();
