@@ -221,6 +221,8 @@ function chooseAnswer(e) {
     setTimeout(() => {
         correct.setInvisible();
         wrong.setInvisible();
+        choice0.setInvisible();
+        choice1.setInvisible();
         
         progress.setProgress(caseIdx, total);
         if (caseIdx == total) return;
