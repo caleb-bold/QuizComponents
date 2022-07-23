@@ -261,4 +261,5 @@ function clickStart() {
 }
 
 // 스토리 좀 짜보자.
-button.setAction("keyup", clickStart);
+button.setAction("click", clickStart);
+window.addEventListener("keyup", clickStart);
