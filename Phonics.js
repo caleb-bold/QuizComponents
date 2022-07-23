@@ -20,6 +20,13 @@ question.setText("다음 중 a에 해당하는 글자를 고르시오");
 let choice0 = new Image();
 let choice1 = new Image();
 
+let correct = new Image();
+correct.setSrc("./img/correct.png");
+correct.setInvisible();
+
+let wrong = new Image();
+wrong.setSrc("./img/wrong.png");
+wrong.setInvisible();
 
 let quiz = new Quiz();
 quiz.appendChild('progress', progress);
@@ -37,6 +44,8 @@ button.setText("START");
 let root = new Root(document.getElementById('root'));
 root.appendChild('page', page);
 root.appendChild('start', button);
+root.appendChild('correct', correct);
+root.appendChild('wrong', wrong);
 
 
 let answerCnt = 0;
@@ -188,18 +197,15 @@ function chooseAnswer(e) {
     stateKeyUp = false;
     window.addEventListener("keyup", waitKeyUp);
 
-    let id = 'answer' + caseIdx;
-    let correctOrWrong = new Image();
-    if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1))
-        correctOrWrong.setSrc("./img/correct.png");
-    else
-        correctOrWrong.setSrc("./img/wrong.png");
-    correctOrWrong.setVisible();
-    root.appendChild(id, correctOrWrong);
+    if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1)) {
+        correct.setVisible();
+    }
+    else {
+        wrong.setVisible();
+    }
     setTimeout(() => {
-        root.deleteChild(id);
-        choice0.setInvisible();
-        choice1.setInvisible();
+        correct.setInvisible();
+        wrong.setInvisible();
         
         progress.setProgress(caseIdx, total);
         if (caseIdx == total) return;
