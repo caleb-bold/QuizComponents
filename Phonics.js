@@ -161,14 +161,14 @@ function nextCase() {
     answerIdx = Math.round(Math.random());
     if(answerIdx == 0) {
         choice0.setHeight(temp_size);
-        choice0.setPosition(-20, 0);
+        choice0.setPosition(-15, 0);
         choice1.setHeight(temp_size);
-        choice1.setPosition(20, 0);
+        choice1.setPosition(15, 0);
     } else {
         choice0.setHeight(temp_size);
-        choice0.setPosition(20, 0);
+        choice0.setPosition(15, 0);
         choice1.setHeight(temp_size);
-        choice1.setPosition(-20, 0);
+        choice1.setPosition(-15, 0);
     }
 
     caseIdx++;
