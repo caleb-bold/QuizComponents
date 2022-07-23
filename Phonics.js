@@ -261,4 +261,4 @@ function clickStart() {
 }
 
 // 스토리 좀 짜보자.
-button.setAction("click", clickStart);
+button.setAction("keyup", clickStart);
