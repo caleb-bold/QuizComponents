@@ -184,10 +184,25 @@ function waitKeyDown() {
 
 
 let stateKeyUp = true;
-function waitKeyUp() {
+
+function setKeyUp() {
     stateKeyUp = true;
 }
 
+let timeStart = 0;
+
+function waitKeyUp() {
+    let timeElapsed = new Date();
+    timeElapsed -= timeStart;
+    if (stateKeyUp || timeElapsed > 1000)
+        waitKeyDown();
+    else
+        setTimeout(waitKeyUp, 100); 
+}
+
+function sleep(ms) {
+    return new Promise((r) => setTimeout(r, ms));
+}
 
 function chooseAnswer(e) {
     if (e.keyCode != 48 && e.keyCode != 49) return;
@@ -195,7 +210,7 @@ function chooseAnswer(e) {
     //console.log(answerIdx);
     window.removeEventListener("keydown", chooseAnswer);
     stateKeyUp = false;
-    window.addEventListener("keyup", waitKeyUp);
+    window.addEventListener("keyup", setKeyUp);
 
     if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1)) {
         correct.setVisible();
@@ -211,8 +226,9 @@ function chooseAnswer(e) {
         if (caseIdx == total) return;
 
         while (!nextCase());
-        while (!stateKeyUp);
-        waitKeyDown();
+        
+        timeStart = new Date();
+        waitKeyUp();
     }, 500);
 }
 
