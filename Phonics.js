@@ -9,7 +9,11 @@ import Image from "./src/Image.js";
 import Progress from "./src/Progress.js";
 import ImageLoader from "./src/ImageLoader.js";
 import RealtimeScore from "./src/RealtimeScore.js";
+import FinalScore from "./src/FinalScore.js";
 
+
+let final_score = new FinalScore();
+final_score.setZero();
 
 let realtime_score = new RealtimeScore();
 realtime_score.setZero();
@@ -137,6 +141,7 @@ function nextCase() {
     
     if (caseIdx == cases.length) {
         //alert('끝.. 다음 문제 또는 스코어 표시');
+        quiz.appendChild('final_score', final_score);
         return false;
     }
     
