@@ -253,6 +253,7 @@ function clickStart() {
     //searchBLE();
 
     progress.setProgress(0, total);
+    realtime_score.addScore(0);
     root.deleteChild('start');
     page.appendChild('quiz', quiz);
     question.adjustFontSize();
