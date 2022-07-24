@@ -30,7 +30,7 @@ export default class RealtimeScore extends Component {
 
         this.m_objBox.td.style.fontSize = Component.getObjectHeight(0) + 'px';
         this.m_objBox.td.style.fontWeight = '500';
-        this.m_objBox.td.innerHTML = "[" + this.m_nScore + "]";
+        this.m_objBox.td.innerHTML = this.m_nScore;
         console.log(this.m_objBox.td.innerHTML);
         
         setTimeout(() => {
@@ -46,11 +46,11 @@ export default class RealtimeScore extends Component {
     
     setScore(score) {
         this.m_nScore = score;
-        this.m_objBox.td.innerHTML = "[" + this.m_nScore + "]";
+        this.m_objBox.td.innerHTML = this.m_nScore;
     }
 
     addScore(score) {
         this.m_nScore += score;
-        this.m_objBox.td.innerHTML = "[" + this.m_nScore + "]";
+        this.m_objBox.td.innerHTML = this.m_nScore;
     }
 }
