@@ -14,6 +14,7 @@ import FinalScore from "./src/FinalScore.js";
 
 let final_score = new FinalScore();
 final_score.setZero();
+final_score.adjustFontSize();
 
 let realtime_score = new RealtimeScore();
 realtime_score.setZero();
@@ -229,7 +230,6 @@ function chooseAnswer(e) {
             alert('끝.. 다음 문제 또는 스코어 표시');
             quiz.appendChild('final_score', final_score);
             final_score.setScore(40000);
-            final_score.adjustFontSize();
             console.log(realtime_score.m_nScore);
             return;
         }  
