@@ -35,13 +35,13 @@ export default class Progress extends Component {
 
         setTimeout(() => {
             Component.adjustFontSize(this.m_objBox.table, this.m_objBox.td, 10);
-        }, 100);
+        }, 10);
     }
 
     adjustFontSize() {
         setTimeout(() => {
             Component.adjustFontSize(this.m_objBox.table, this.m_objBox.td, 10);
-        }, 100);
+        }, 10);
     }
 
     setProgress(current, total) {

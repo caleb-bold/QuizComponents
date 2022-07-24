@@ -15,7 +15,7 @@ let realtime_score = new RealtimeScore();
 realtime_score.setZero();
 
 let progress = new Progress();
-progress.setZero();
+//progress.setZero();
 
 let question = new Question();
 question.setText("다음 중 a에 해당하는 글자를 고르시오");
