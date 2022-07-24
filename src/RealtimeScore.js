@@ -32,7 +32,7 @@ export default class RealtimeScore extends Component {
         this.m_objBox.td.style.fontWeight = '500';
         this.m_objBox.td.innerHTML = "[" + this.m_nScore + "]";
         console.log(this.m_objBox.td.innerHTML);
-
+        
         setTimeout(() => {
             Component.adjustFontSize(this.m_objBox.table, this.m_objBox.td, 10);
         }, 100);

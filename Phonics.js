@@ -258,6 +258,7 @@ function clickStart() {
     page.appendChild('quiz', quiz);
     question.adjustFontSize();
     progress.adjustFontSize();
+    realtime_score.adjustFontSize();
     
     window.removeEventListener("keyup", clickStart);
 
