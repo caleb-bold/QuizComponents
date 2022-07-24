@@ -33,6 +33,7 @@ wrong.setSrc("./img/wrong.png");
 wrong.setInvisible();
 
 let quiz = new Quiz();
+quiz.appendChild('realtime_score', realtime_score);
 quiz.appendChild('progress', progress);
 quiz.appendChild('question', question);
 
