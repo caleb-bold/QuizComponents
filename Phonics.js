@@ -142,8 +142,9 @@ function nextCase() {
     if (caseIdx == cases.length) {
         //alert('끝.. 다음 문제 또는 스코어 표시');
         quiz.appendChild('final_score', final_score);
-        realtime_score.setScore(40000);
-        realtime_score.adjustFontSize();
+        final_score.setScore(40000);
+        final_score.adjustFontSize();
+        console.log(realtime_score.m_nScore);
 
         return false;
     }
@@ -238,7 +239,8 @@ function chooseAnswer(e) {
         progress.setProgress(caseIdx, total);
         if (caseIdx == total) return;
 
-        while (!nextCase());
+        //while (!nextCase());
+        nextCase();
         
         timeStart = new Date();
         waitKeyUp();
