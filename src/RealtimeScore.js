@@ -43,6 +43,11 @@ export default class RealtimeScore extends Component {
             Component.adjustFontSize(this.m_objBox.table, this.m_objBox.td, 10);
         }, 100);
     }
+    
+    setScore(score) {
+        this.m_nScore = score;
+        this.m_objBox.td.innerHTML = "[" + this.m_nScore + "]";
+    }
 
     addScore(score) {
         this.m_nScore += score;

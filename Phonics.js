@@ -8,11 +8,11 @@ import Button from "./src/Button.js";
 import Image from "./src/Image.js";
 import Progress from "./src/Progress.js";
 import ImageLoader from "./src/ImageLoader.js";
-//import RealtimeScore from "./src/RealtimeScore.js";
+import RealtimeScore from "./src/RealtimeScore.js";
 
 
-//let realtime_score = new RealtimeScore();
-//realtime_score.setZero();
+let realtime_score = new RealtimeScore();
+realtime_score.setZero();
 
 let progress = new Progress();
 progress.setZero();
@@ -33,7 +33,7 @@ wrong.setSrc("./img/wrong.png");
 wrong.setInvisible();
 
 let quiz = new Quiz();
-//quiz.appendChild('realtime_score', realtime_score);
+quiz.appendChild('realtime_score', realtime_score);
 quiz.appendChild('progress', progress);
 quiz.appendChild('question', question);
 
@@ -144,8 +144,8 @@ function nextCase() {
     if (choices == null)
         return false;
  
-    console.log(choices.correct.m_objImage.img.src);
-    console.log(choices.wrong.m_objImage.img.src);
+    //console.log(choices.correct.m_objImage.img.src);
+    //console.log(choices.wrong.m_objImage.img.src);
     //console.log(imageLoader.m_imageQueue);
     
     quiz.deleteChild("choice0");
@@ -253,12 +253,12 @@ function clickStart() {
     //searchBLE();
 
     progress.setProgress(0, total);
-    //realtime_score.addScore(0);
+    realtime_score.setScore(0);
     root.deleteChild('start');
     page.appendChild('quiz', quiz);
     question.adjustFontSize();
     progress.adjustFontSize();
-    //realtime_score.adjustFontSize();
+    realtime_score.adjustFontSize();
     
     window.removeEventListener("keyup", clickStart);
 
