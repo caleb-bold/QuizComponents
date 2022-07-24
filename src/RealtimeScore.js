@@ -34,13 +34,13 @@ export default class RealtimeScore extends Component {
 
         setTimeout(() => {
             Component.adjustFontSize(this.m_objBox.table, this.m_objBox.td, 10);
-        }, 10);
+        }, 100);
     }
 
     adjustFontSize() {
         setTimeout(() => {
             Component.adjustFontSize(this.m_objBox.table, this.m_objBox.td, 10);
-        }, 10);
+        }, 100);
     }
 
     addScore(score) {
