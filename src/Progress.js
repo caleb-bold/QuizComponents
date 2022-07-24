@@ -1,4 +1,4 @@
-impo    rt Component from "./Component.js";
+import Component from "./Component.js";
 
 
 export default class Progress extends Component {
