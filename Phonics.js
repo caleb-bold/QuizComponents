@@ -142,6 +142,9 @@ function nextCase() {
     if (caseIdx == cases.length) {
         //alert('끝.. 다음 문제 또는 스코어 표시');
         quiz.appendChild('final_score', final_score);
+        realtime_score.setScore(40000);
+        realtime_score.adjustFontSize();
+
         return false;
     }
     
