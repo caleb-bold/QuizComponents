@@ -14,6 +14,7 @@ export default class RealtimeScore extends Component {
         this.m_objBox = Component.createBox(20, 10, 30, -30, true);
         this.m_objBox.table.style.backgroundColor = '#777777';
         this.m_objCurrentDOM = this.m_objBox.table;
+        this.m_objBox.td.innerHTML = '-';
     }
 
     /**
