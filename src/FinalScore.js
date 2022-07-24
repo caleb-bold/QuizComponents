@@ -11,7 +11,7 @@ export default class FinalScore extends Component {
      */
     constructor() {
         super();
-        this.m_objBox = Component.createBox(40, 20, 0, 0, true);
+        this.m_objBox = Component.createBox(40, 20, 0, -10, true);
         this.m_objBox.table.style.backgroundColor = '#777777';
         this.m_objCurrentDOM = this.m_objBox.table;
         this.m_objBox.td.innerHTML = '-';
