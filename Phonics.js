@@ -8,7 +8,11 @@ import Button from "./src/Button.js";
 import Image from "./src/Image.js";
 import Progress from "./src/Progress.js";
 import ImageLoader from "./src/ImageLoader.js";
+import RealtimeScore from "./src/RealtimeScore.js";
 
+
+let realtime_score = new RealtimeScore();
+realtime_score.setZero();
 
 let progress = new Progress();
 progress.setZero();
@@ -211,6 +215,7 @@ function chooseAnswer(e) {
 
     if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1)) {
         correct.setVisible();
+        realtime_score.addScore(100);
     }
     else {
         wrong.setVisible();
