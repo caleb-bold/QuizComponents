@@ -137,18 +137,6 @@ let temp_size = 30;
 let correctCount = 0;
 
 function nextCase() {
-    //progress.setProgress(caseIdx, total);
-    
-    if (caseIdx == cases.length) {
-        alert('끝.. 다음 문제 또는 스코어 표시');
-        //quiz.appendChild('final_score', final_score);
-        //final_score.setScore(40000);
-        //final_score.adjustFontSize();
-        //console.log(realtime_score.m_nScore);
-
-        return false;
-    }
-    
     let choices = imageLoader.popCase();
     if (choices == null)
         return false;
@@ -237,10 +225,17 @@ function chooseAnswer(e) {
         choice1.setInvisible();
         
         progress.setProgress(caseIdx, total);
-        if (caseIdx == total) return;
+        if (caseIdx == total) {
+            alert('끝.. 다음 문제 또는 스코어 표시');
+            quiz.appendChild('final_score', final_score);
+            final_score.setScore(40000);
+            final_score.adjustFontSize();
+            console.log(realtime_score.m_nScore);
+            return;
+        }  
 
-        //while (!nextCase());
-        nextCase();
+        while (!nextCase());
+        //nextCase();
         
         timeStart = new Date();
         waitKeyUp();
