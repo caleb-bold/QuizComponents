@@ -28,20 +28,23 @@ export default class FinalScore extends Component {
     setZero() {
         this.m_nScore = 0;
 
-        this.m_objBox.td.style.fontSize = Component.getObjectHeight(0) + 'px';
+        this.m_objBox.td.style.fontSize = Component.getObjectHeight(20) + 'px';
         this.m_objBox.td.style.fontWeight = '500';
         this.m_objBox.td.innerHTML = this.m_nScore;
         console.log(this.m_objBox.td.innerHTML);
-        
+        /*
         setTimeout(() => {
             Component.adjustFontSize(this.m_objBox.table, this.m_objBox.td, 10);
         }, 10);
+        */
     }
 
     adjustFontSize() {
+        /*
         setTimeout(() => {
             Component.adjustFontSize(this.m_objBox.table, this.m_objBox.td, 10);
         }, 10);
+        */
     }
     
     setScore(score) {
