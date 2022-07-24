@@ -140,7 +140,7 @@ function nextCase() {
     //progress.setProgress(caseIdx, total);
     
     if (caseIdx == cases.length) {
-        //alert('끝.. 다음 문제 또는 스코어 표시');
+        alert('끝.. 다음 문제 또는 스코어 표시');
         //quiz.appendChild('final_score', final_score);
         //final_score.setScore(40000);
         //final_score.adjustFontSize();
