@@ -204,6 +204,15 @@ function sleep(ms) {
     return new Promise((r) => setTimeout(r, ms));
 }
 
+let currentScore = 0;
+let targetScore = 0;
+function animateScore() {
+    final_score.setScore(currentScore);
+    if (currentScore == targetScore) return;
+    currentScore += 1;
+    setTimeout(animateScore, 10);
+}
+
 function chooseAnswer(e) {
     if (e.keyCode != 48 && e.keyCode != 49) return;
     //console.log(e.keyCode);
@@ -229,8 +238,13 @@ function chooseAnswer(e) {
         if (caseIdx == total) {
             //alert('끝.. 다음 문제 또는 스코어 표시');
             quiz.appendChild('final_score', final_score);
-            final_score.setScore(realtime_score.m_nScore);
-            console.log(realtime_score.m_nScore);
+            //final_score.setScore(realtime_score.m_nScore);
+            //console.log(realtime_score.m_nScore);
+            
+            currentScore = 0;
+            targetScore = realtime_score.m_nScore;
+            animateScore();
+            
             return;
         }  
 
