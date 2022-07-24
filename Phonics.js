@@ -216,7 +216,7 @@ function chooseAnswer(e) {
 
     if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1)) {
         correct.setVisible();
-        realtime_score.addScore(100);
+        realtime_score.addScore(10);
     }
     else {
         wrong.setVisible();
