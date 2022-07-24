@@ -116,7 +116,7 @@ function shuffle(array) {
 
 
 let correctChoices = [0, 1, 2];
-let wrongChoices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+let wrongChoices = [0, 1, 2]; //, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 const cartesian = (...a) => a.reduce((a, b) => a.flatMap(d => b.map(e => [d, e].flat())));
 let cases = cartesian(correctChoices, wrongChoices);
 shuffle(cases);
@@ -141,10 +141,10 @@ function nextCase() {
     
     if (caseIdx == cases.length) {
         //alert('끝.. 다음 문제 또는 스코어 표시');
-        quiz.appendChild('final_score', final_score);
-        final_score.setScore(40000);
-        final_score.adjustFontSize();
-        console.log(realtime_score.m_nScore);
+        //quiz.appendChild('final_score', final_score);
+        //final_score.setScore(40000);
+        //final_score.adjustFontSize();
+        //console.log(realtime_score.m_nScore);
 
         return false;
     }
