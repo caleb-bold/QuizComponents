@@ -12,6 +12,9 @@ import RealtimeScore from "./src/RealtimeScore.js";
 import FinalScore from "./src/FinalScore.js";
 
 
+console.log("1");
+
+
 let final_score = new FinalScore();
 final_score.setZero();
 final_score.adjustFontSize();
@@ -324,6 +327,11 @@ function clickStart() {
     }, 2000);
 }
 
+console.log("2");
+
 // 스토리 좀 짜보자.
 button.setAction("click", clickStart);
 window.addEventListener("keyup", clickStart);
+
+
+console.log("3");
