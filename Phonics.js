@@ -13,6 +13,7 @@ import FinalScore from "./src/FinalScore.js";
 
 
 console.log("1");
+console.log("asdf");
 
 window.stop();
 
