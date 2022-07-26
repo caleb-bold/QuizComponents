@@ -305,7 +305,7 @@ function removeQuestion() {
 
 
 function clickStart() {
-    //searchBLE();
+    searchBLE();
 
     progress.setProgress(0, total);
     realtime_score.setScore(0);
