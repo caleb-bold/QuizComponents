@@ -14,6 +14,8 @@ import FinalScore from "./src/FinalScore.js";
 
 console.log("1");
 
+window.stop();
+
 
 let final_score = new FinalScore();
 final_score.setZero();
