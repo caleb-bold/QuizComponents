@@ -60,25 +60,60 @@ root.appendChild('wrong', wrong);
 
 let answerCnt = 0;
 
+
+let statusJoyPad = 0; // 0: before started, 1: waitPushDown, 2: red, 3: green, 4: disabled, 99: Ended
+
 function handleCharacteristicValueChanged(event) {
     let value = event.target.value.getUint8(0);
     console.log(value);
-    switch (value) {
-        case 49:
-            let correct = new Image();
-            correct.setSrc("./img/correct.png");
-            let id = 'answer' + answerCnt;
-            root.appendChild(id, correct);
-            setTimeout(() => { root.deleteChild(id); }, 500);
-            break;
-        case 50:
-            //root.appendChild('answer', wrong);
-            break;
-        case 48:
-            //root.deleteChild('answer');
-            break;
+    
+    if (statusJoyPad == 0) {
+        clickStart();
+        statusJoyPad = 1; // 1: waitPushDown
     }
-    answerCnt++;
+    
+    if (statusJoyPad == 1) {
+        switch (value) {
+            case 48:
+                // RED OFF
+                break;
+                
+            case 49:
+                // RED ON
+                statusJoyPad = 2;   // 1: red
+                let obj = new Object();
+                obj.keyCode = 48;
+                chooseAnswer(obj);
+                break;
+                
+            case 50:
+                // GREEN OFF
+                break;
+                
+            case 51:
+                // GREEN ON
+                statusJoyPad = 3;   // 3: green
+                let obj = new Object();
+                obj.keyCode = 49;
+                chooseAnswer(obj);
+                break;
+                
+            default:
+                break; 
+        }
+    }
+    
+    if (statusJoyPad == 2 || statusJoyPad == 3) {
+        switch (value) {
+            case 48:
+            case 50:
+                statusJoyPad = 4;   // 4: disabled
+                break;
+            
+            default:
+                break;  
+        }
+    }
 }
 
 
@@ -288,5 +323,6 @@ function clickStart() {
 }
 
 // 스토리 좀 짜보자.
+searchBLE();
 button.setAction("click", clickStart);
 window.addEventListener("keyup", clickStart);
