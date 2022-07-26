@@ -323,6 +323,5 @@ function clickStart() {
 }
 
 // 스토리 좀 짜보자.
-searchBLE();
 button.setAction("click", clickStart);
 window.addEventListener("keyup", clickStart);
