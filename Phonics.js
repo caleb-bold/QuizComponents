@@ -101,19 +101,17 @@ function handleCharacteristicValueChanged(event) {
         }
     }
     
-    /*
     if (statusJoyPad == 2 || statusJoyPad == 3) {
         switch (value) {
             case 48:
             case 50:
-                statusJoyPad = 4;   // 4: disabled
+                statusJoyPad = 1;   // 4: disabled
                 break;
             
             default:
                 break;  
         }
     }
-    */
 }
 
 
@@ -230,8 +228,10 @@ let timeStart = 0;
 function waitKeyUp() {
     let timeElapsed = new Date();
     timeElapsed -= timeStart;
-    if (stateKeyUp) // || timeElapsed > 1000)
+    if (stateKeyUp) { // || timeElapsed > 1000)
+        window.removeEventListener("keyup", setKeyUp);
         waitKeyDown();
+    } 
     else
         setTimeout(waitKeyUp, 100); 
 }
@@ -282,12 +282,15 @@ function chooseAnswer(e) {
             animateScore();
             
             return;
-        }  
+        }
 
         while (!nextCase());
         //nextCase();
         
         timeStart = new Date();
+        if (statusJoyPad == 2 || statusJoyPad == 3) {
+            stateKeyUp = true;
+        }
         waitKeyUp();
     }, 500);
 }
