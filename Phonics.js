@@ -13,9 +13,6 @@ import FinalScore from "./src/FinalScore.js";
 
 
 console.log("1");
-console.log("asdf");
-
-window.stop();
 
 
 let final_score = new FinalScore();
@@ -67,7 +64,7 @@ root.appendChild('wrong', wrong);
 let answerCnt = 0;
 
 
-/*
+
 let statusJoyPad = 0; // 0: before started, 1: waitPushDown, 2: red, 3: green, 4: disabled, 99: Ended
 
 function handleCharacteristicValueChanged(event) {
@@ -139,7 +136,7 @@ function searchBLE() {
         console.log('Notifications have been started.');
     }).catch(error => { console.error(error); });
 }
-*/
+
 
 
 function shuffle(array) {
