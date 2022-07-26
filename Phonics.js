@@ -70,12 +70,7 @@ let statusJoyPad = 0; // 0: before started, 1: waitPushDown, 2: red, 3: green, 4
 function handleCharacteristicValueChanged(event) {
     let value = event.target.value.getUint8(0);
     console.log(value);
-    
-    if (statusJoyPad == 0) {
-        clickStart();
-        statusJoyPad = 1; // 1: waitPushDown
-    }
-    
+        
     if (statusJoyPad == 1) {
         let event_obj = new Object();
         switch (value) {
@@ -311,6 +306,7 @@ function removeQuestion() {
 
 function clickStart() {
     searchBLE();
+    statusJoyPad = 1; // 1: waitPushDown
 
     progress.setProgress(0, total);
     realtime_score.setScore(0);
