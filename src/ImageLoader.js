@@ -45,7 +45,7 @@ export default class ImageLoader
         for (let i = 0; i < this.m_cases.length; i++) {
             if (i == ImageLoader.preloadSize) break;
             
-            console.log(this.m_cases[i]);
+            //console.log(this.m_cases[i]);
             
             let arrChoices = {};
             arrChoices["correct"] = new Image();
@@ -85,10 +85,10 @@ export default class ImageLoader
                 this.m_imageQueue.push(arrChoices);
             }
 
-            console.log("success");
+            //console.log("success");
             return this.m_imageQueue.shift();
         } else {
-            console.log("failed");
+            console.log("Loading an image has failed.");
             return null; 
         } 
     }
