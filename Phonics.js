@@ -122,6 +122,7 @@ const cartesian = (...a) => a.reduce((a, b) => a.flatMap(d => b.map(e => [d, e].
 let cases = cartesian(correctChoices, wrongChoices);
 shuffle(cases);
 let total = cases.length;
+console.log("total" + total);
 
 let imageLoader = new ImageLoader();
 imageLoader.addCases(cases);
