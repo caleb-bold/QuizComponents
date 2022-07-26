@@ -333,5 +333,7 @@ console.log("2");
 button.setAction("click", clickStart);
 window.addEventListener("keyup", clickStart);
 
+button.m_objButton.button.click();
+
 
 console.log("3");
