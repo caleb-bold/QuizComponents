@@ -101,6 +101,7 @@ function handleCharacteristicValueChanged(event) {
         }
     }
     
+    /*
     if (statusJoyPad == 2 || statusJoyPad == 3) {
         switch (value) {
             case 48:
@@ -112,6 +113,7 @@ function handleCharacteristicValueChanged(event) {
                 break;  
         }
     }
+    */
 }
 
 
@@ -290,6 +292,7 @@ function chooseAnswer(e) {
         timeStart = new Date();
         if (statusJoyPad == 2 || statusJoyPad == 3) {
             stateKeyUp = true;
+            statusJoyPad = 1;
         }
         waitKeyUp();
     }, 500);
