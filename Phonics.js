@@ -87,7 +87,7 @@ function handleCharacteristicValueChanged(event) {
                 // RED ON
                 statusJoyPad = 2;   // 1: red
                 event_obj.keyCode = 48;
-                chooseAnswer(event_obj);
+                //chooseAnswer(event_obj);
                 break;
                 
             case 50:
@@ -98,7 +98,7 @@ function handleCharacteristicValueChanged(event) {
                 // GREEN ON
                 statusJoyPad = 3;   // 3: green
                 event_obj.keyCode = 49;
-                chooseAnswer(event_obj);
+                //chooseAnswer(event_obj);
                 break;
                 
             default:
@@ -106,6 +106,7 @@ function handleCharacteristicValueChanged(event) {
         }
     }
     
+    /*
     if (statusJoyPad == 2 || statusJoyPad == 3) {
         switch (value) {
             case 48:
@@ -117,6 +118,7 @@ function handleCharacteristicValueChanged(event) {
                 break;  
         }
     }
+    */
 }
 
 
