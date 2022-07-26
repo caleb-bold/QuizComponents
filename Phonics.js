@@ -85,9 +85,9 @@ function handleCharacteristicValueChanged(event) {
             case 49:
                 // RED ON
                 statusJoyPad = 2;   // 1: red
-                let obj = new Object();
-                obj.keyCode = 48;
-                chooseAnswer(obj);
+                let event_obj = new Object();
+                event_obj.keyCode = 48;
+                chooseAnswer(event_obj);
                 break;
                 
             case 50:
@@ -97,9 +97,9 @@ function handleCharacteristicValueChanged(event) {
             case 51:
                 // GREEN ON
                 statusJoyPad = 3;   // 3: green
-                let obj = new Object();
-                obj.keyCode = 49;
-                chooseAnswer(obj);
+                let event_obj = new Object();
+                event_obj.keyCode = 49;
+                chooseAnswer(event_obj);
                 break;
                 
             default:
