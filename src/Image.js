@@ -49,6 +49,7 @@ export default class Image extends Component {
         this.m_objImage.img.style.visibility = 'hidden';
         this.m_objImage.img.src = img_url;
         this.m_objImage.img.myObj = this;
+        
         this.m_objImage.img.addEventListener("load", this.onLoad);
         this.m_objImage.img.addEventListener("error", this.onError);
     }
