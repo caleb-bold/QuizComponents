@@ -12,8 +12,8 @@ import RealtimeScore from "./src/RealtimeScore.js";
 import FinalScore from "./src/FinalScore.js";
 
 
-console.log("1");
-
+let music = new Audio("./sound/mixkit-game-level-music-689.wav");
+music.play();
 
 let final_score = new FinalScore();
 final_score.setZero();
@@ -69,7 +69,6 @@ let statusJoyPad = 0; // 0: before started, 1: waitPushDown, 2: red, 3: green, 4
 
 function handleCharacteristicValueChanged(event) {
     let value = event.target.value.getUint8(0);
-    console.log(value);
         
     if (statusJoyPad == 1) {
         let event_obj = new Object();
@@ -329,13 +328,9 @@ function clickStart() {
     }, 2000);
 }
 
-console.log("2");
 
 // 스토리 좀 짜보자.
 button.setAction("click", clickStart);
 window.addEventListener("keyup", clickStart);
 
 button.m_objButton.button.click();
-
-
-console.log("3");
