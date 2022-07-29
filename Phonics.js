@@ -12,8 +12,9 @@ import RealtimeScore from "./src/RealtimeScore.js";
 import FinalScore from "./src/FinalScore.js";
 
 
-//./sound/mixkit-game-level-music-689.wav
-var music = new Audio("./sound/6. Гё.mp3");
+//"./sound/6. Гё.mp3"
+//
+var music = new Audio('./sound/mixkit-game-level-music-689.wav');
 music.loop = true;
 music.volume = 1.0;
 music.play();
