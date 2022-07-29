@@ -17,7 +17,6 @@ import FinalScore from "./src/FinalScore.js";
 var music = new Audio('./sound/mixkit-game-level-music-689.wav');
 music.loop = true;
 music.volume = 1.0;
-music.play();
 
 let final_score = new FinalScore();
 final_score.setZero();
@@ -314,6 +313,8 @@ function removeQuestion() {
 
 
 function clickStart() {
+    music.play();
+
     searchBLE();
     statusJoyPad = 1; // 1: waitPushDown
 
