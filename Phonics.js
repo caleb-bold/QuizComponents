@@ -72,7 +72,7 @@ let statusJoyPad = 0; // 0: before started, 1: waitPushDown, 2: red, 3: green, 4
 
 function handleCharacteristicValueChanged(event) {
     let value = event.target.value.getUint8(0);
-        
+            
     if (statusJoyPad == 1) {
         let event_obj = new Object();
         switch (value) {
@@ -130,9 +130,17 @@ function searchBLE() {
     }).then(characteristic => {
         return characteristic.startNotifications();
     }).then(characteristic => {
+        if (statusJoyPad == 0) {
+            showQuestion();
+            statusJoyPad = 1;
+        }
+
         characteristic.addEventListener('characteristicvaluechanged', handleCharacteristicValueChanged);
         console.log('Notifications have been started.');
-    }).catch(error => { console.error(error); });
+    }).catch(error => {
+        console.error(error);
+        showQuestion();
+    });
 }
 
 
@@ -311,17 +319,11 @@ function removeQuestion() {
     setTimeout(waitKeyDown, 300);
 }
 
-
-function clickStart() {
-    music.play();
-
-    searchBLE();
-    statusJoyPad = 1; // 1: waitPushDown
-
+function showQuestion() {
     progress.setProgress(0, total);
     realtime_score.setScore(0);
     root.deleteChild('start');
-    page.appendChild('quiz', quiz);
+    page.appendChild('quiz', quiz); // question
     question.adjustFontSize();
     progress.adjustFontSize();
     realtime_score.adjustFontSize();
@@ -333,8 +335,14 @@ function clickStart() {
     }, 2000);
 }
 
+function clickStart() {
+    music.play();
 
-// 스토리 좀 짜보자.
+    searchBLE();
+    //statusJoyPad = 1; // 1: waitPushDown
+}
+
+
 button.setAction("click", clickStart);
 window.addEventListener("keyup", clickStart);
 
