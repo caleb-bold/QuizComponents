@@ -269,6 +269,18 @@ function animateScore() {
     setTimeout(animateScore, 10);
 }
 
+function playCorrectSound() {
+    //correct_sound.pause();
+    correct_sound.currentTime = 0;
+    correct_sound.play();
+}
+
+function playWrongSound() {
+    //wrong_sound.pause();
+    wrong_sound.currentTime = 0;
+    wrong_sound.play();
+}
+
 function chooseAnswer(e) {
     if (e.keyCode != 48 && e.keyCode != 49) return;
     //console.log(e.keyCode);
@@ -278,19 +290,12 @@ function chooseAnswer(e) {
     window.addEventListener("keyup", setKeyUp);
 
     if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1)) {
-        
-        //correct_sound.pause();
-        correct_sound.currentTime = 0;
-        correct_sound.play();
-        
+        setTimeout(playCorrectSound, 1);
         correct.setVisible();
         realtime_score.addScore(10);
     }
     else {
-        //wrong_sound.pause();
-        wrong_sound.currentTime = 0;
-        wrong_sound.play();
-        
+        setTimeout(playWrongSound, 1);
         wrong.setVisible();
     }
     setTimeout(() => {
