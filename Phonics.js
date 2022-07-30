@@ -370,17 +370,10 @@ function chooseAnswer(e) {
             targetScore = realtime_score.m_nScore;
             animateScore();
             
-            home.setHeight(15);
-            home.setPosition(-15, 20);
-            replay.setHeight(15);
-            replay.setPosition(15, 20);
-            home.setVisible();
-            replay.setVisible();
-            quiz.appendChild('home', home);
-            quiz.appendChild('replay', replay);
             
             window.removeEventListener("keydown", chooseAnswer);
-            window.addEventListener("keydown", endOrReplay);
+            
+            setTimeout(showHomeAndReplayButton, 2000);
             
             return;
         }
@@ -395,6 +388,19 @@ function chooseAnswer(e) {
         }
         waitKeyUp();
     }, 500);
+}
+
+function showHomeAndReplayButton() {
+    home.setHeight(15);
+    home.setPosition(-15, 20);
+    replay.setHeight(15);
+    replay.setPosition(15, 20);
+    home.setVisible();
+    replay.setVisible();
+    quiz.appendChild('home', home);
+    quiz.appendChild('replay', replay);
+
+    window.addEventListener("keydown", endOrReplay);
 }
 
 function endOrReplay(e) {
