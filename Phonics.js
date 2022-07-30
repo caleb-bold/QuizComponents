@@ -379,6 +379,7 @@ function chooseAnswer(e) {
             quiz.appendChild('home', home);
             quiz.appendChild('replay', replay);
             
+            window.removeEventListener("keydown", chooseAnswer);
             window.addEventListener("keydown", chooseAnswer);
             
             return;
@@ -400,7 +401,7 @@ function endOrReplay(e) {
     if (e.keyCode != 48 && e.keyCode != 49) return;
     //console.log(e.keyCode);
     //console.log(answerIdx);
-    window.removeEventListener("keydown", chooseAnswer);
+    //window.removeEventListener("keydown", chooseAnswer);
     //stateKeyUp = false;
     //window.addEventListener("keyup", setKeyUp);
     
