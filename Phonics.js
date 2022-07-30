@@ -274,7 +274,7 @@ function chooseAnswer(e) {
     window.addEventListener("keyup", setKeyUp);
 
     if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1)) {
-        correct_sound.stop();
+        //correct_sound.stop();
         correct_sound.play();
         correct.setVisible();
         realtime_score.addScore(10);
