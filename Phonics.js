@@ -379,7 +379,7 @@ function chooseAnswer(e) {
             quiz.appendChild('home', home);
             quiz.appendChild('replay', replay);
             
-            window.addEventListener("keydown", endOrReplay);
+            window.addEventListener("keydown", chooseAnswer);
             
             return;
         }
@@ -396,7 +396,7 @@ function chooseAnswer(e) {
     }, 500);
 }
 
-function endOrReplay() {
+function endOrReplay(e) {
     if (e.keyCode != 48 && e.keyCode != 49) return;
     //console.log(e.keyCode);
     //console.log(answerIdx);
