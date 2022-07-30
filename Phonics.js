@@ -123,6 +123,36 @@ function handleCharacteristicValueChanged(event) {
                 break; 
         }
     }
+
+    if (statusJoyPad == 99) {
+        let event_obj = new Object();
+        switch (value) {
+            case 48:
+                // RED OFF
+                break;
+                
+            case 49:
+                // RED ON
+                statusJoyPad = 2;   // 1: red
+                event_obj.keyCode = 49;
+                endOrReplay(event_obj);
+                break;
+                
+            case 50:
+                // GREEN OFF
+                break;
+                
+            case 51:
+                // GREEN ON
+                statusJoyPad = 3;   // 3: green
+                event_obj.keyCode = 48;
+                endOrReplay(event_obj);
+                break;
+                
+            default:
+                break; 
+        }
+    }
     
     /*
     if (statusJoyPad == 2 || statusJoyPad == 3) {
@@ -299,7 +329,7 @@ function playScoringSound() {
     //scoring_sound.pause();
     scoring_sound.currentTime = 0;
     scoring_sound.play();
-} 
+}
 
 function chooseAnswer(e) {
     if (e.keyCode != 48 && e.keyCode != 49) return;
@@ -327,6 +357,8 @@ function chooseAnswer(e) {
         progress.setProgress(caseIdx, total);
         if (caseIdx == total) {
             //alert('끝.. 다음 문제 또는 스코어 표시');
+            
+            statusJoyPad = 99;
             
             setTimeout(playScoringSound, 0);
             
@@ -360,6 +392,25 @@ function chooseAnswer(e) {
         }
         waitKeyUp();
     }, 500);
+}
+
+function endOrReplay() {
+    if (e.keyCode != 48 && e.keyCode != 49) return;
+    //console.log(e.keyCode);
+    //console.log(answerIdx);
+    window.removeEventListener("keydown", chooseAnswer);
+    stateKeyUp = false;
+    window.addEventListener("keyup", setKeyUp);
+    
+    home.setInvisible();
+    replay.setInvisible();
+    
+    if(e.keyCode == 49) {
+        location.href = 'https://tyrannodata.com';
+    }
+    else { //e.keyCode == 48
+        location.reload();
+    }
 }
 
 
