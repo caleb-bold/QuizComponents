@@ -380,7 +380,7 @@ function chooseAnswer(e) {
             quiz.appendChild('replay', replay);
             
             window.removeEventListener("keydown", chooseAnswer);
-            window.addEventListener("keydown", chooseAnswer);
+            window.addEventListener("keydown", endOrReplay);
             
             return;
         }
