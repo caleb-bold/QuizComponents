@@ -286,6 +286,7 @@ function playWrongSound() {
 }
 
 function playScoringSound() {
+    music.pause();
     //scoring_sound.pause();
     scoring_sound.currentTime = 0;
     scoring_sound.play();
