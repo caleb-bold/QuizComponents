@@ -338,4 +338,4 @@ function clickStart() {
 button.setAction("click", clickStart);
 window.addEventListener("keyup", clickStart);
 
-button.m_objButton.button.click();
+//button.m_objButton.button.click();
