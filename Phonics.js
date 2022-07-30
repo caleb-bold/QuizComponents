@@ -17,6 +17,9 @@ let music = new Audio('./sound/mixkit-game-level-music-689.wav');
 music.loop = true;
 music.volume = 1.0;
 
+let correct_sound = new Audio('./sound/mixkit-winning-a-coin-video-game-2069.wav');
+correct_sound.loop = false;
+correct_sound.volume = 1.0;
 
 
 let final_score = new FinalScore();
@@ -270,15 +273,10 @@ function chooseAnswer(e) {
     stateKeyUp = false;
     window.addEventListener("keyup", setKeyUp);
 
-    if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1))
-    {
-        let correct_sound = new Audio('./sound/mixkit-winning-a-coin-video-game-2069.wav');
-        correct_sound.loop = false;
-        correct_sound.volume = 1.0;
-
-        //correct_sound.stop();
-        //correct_sound.pause();
-        //correct_sound.currentTime = 0;
+    if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1)) {
+        
+        correct_sound.pause();
+        correct_sound.currentTime = 0;
         //correct_sound.volume = 1.0;
         correct_sound.play();
         
