@@ -25,6 +25,10 @@ let wrong_sound = new Audio('./sound/6. Гё.mp3');
 wrong_sound.loop = false;
 wrong_sound.volume = 1.0;
 
+let scoring_sound = new Audio('./sound/mixkit-game-level-completed-2059.wav');
+scoring_sound.loop = false;
+scoring_sound.volume = 1.0;
+
 
 let final_score = new FinalScore();
 final_score.setZero();
@@ -281,6 +285,12 @@ function playWrongSound() {
     wrong_sound.play();
 }
 
+function playScoringSound() {
+    //scoring_sound.pause();
+    scoring_sound.currentTime = 0;
+    scoring_sound.play();
+} 
+
 function chooseAnswer(e) {
     if (e.keyCode != 48 && e.keyCode != 49) return;
     //console.log(e.keyCode);
@@ -307,6 +317,9 @@ function chooseAnswer(e) {
         progress.setProgress(caseIdx, total);
         if (caseIdx == total) {
             //alert('끝.. 다음 문제 또는 스코어 표시');
+            
+            setTimeout(playScoringSound, 0);
+            
             quiz.appendChild('final_score', final_score);
             //final_score.setScore(realtime_score.m_nScore);
             //console.log(realtime_score.m_nScore);
