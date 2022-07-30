@@ -21,6 +21,10 @@ let correct_sound = new Audio('./sound/mixkit-winning-a-coin-video-game-2069.wav
 correct_sound.loop = false;
 correct_sound.volume = 1.0;
 
+let wrong_sound = new Audio('./sound/6. Гё.mp3');
+wrong_sound.loop = false;
+wrong_sound.volume = 1.0;
+
 
 let final_score = new FinalScore();
 final_score.setZero();
@@ -277,13 +281,16 @@ function chooseAnswer(e) {
         
         //correct_sound.pause();
         correct_sound.currentTime = 0;
-        //correct_sound.volume = 1.0;
         correct_sound.play();
         
         correct.setVisible();
         realtime_score.addScore(10);
     }
     else {
+        //wrong_sound.pause();
+        wrong_sound.currentTime = 0;
+        wrong_sound.play();
+        
         wrong.setVisible();
     }
     setTimeout(() => {
