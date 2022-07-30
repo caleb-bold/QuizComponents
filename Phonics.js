@@ -338,10 +338,10 @@ function chooseAnswer(e) {
             targetScore = realtime_score.m_nScore;
             animateScore();
             
-            home.setHeight(temp_size);
-            home.setPosition(-15, 15);
-            replay.setHeight(temp_size);
-            replay.setPosition(15, 15);
+            home.setHeight(15);
+            home.setPosition(-15, 20);
+            replay.setHeight(15);
+            replay.setPosition(15, 20);
             home.setVisible();
             replay.setVisible();
             quiz.appendChild('home', home);
