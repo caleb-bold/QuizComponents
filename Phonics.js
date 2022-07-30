@@ -290,12 +290,12 @@ function chooseAnswer(e) {
     window.addEventListener("keyup", setKeyUp);
 
     if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1)) {
-        setTimeout(playCorrectSound, 1);
+        setTimeout(playCorrectSound, 0);
         correct.setVisible();
         realtime_score.addScore(10);
     }
     else {
-        setTimeout(playWrongSound, 1);
+        setTimeout(playWrongSound, 0);
         wrong.setVisible();
     }
     setTimeout(() => {
