@@ -55,6 +55,15 @@ let wrong = new Image();
 wrong.setSrc("./img/wrong.png");
 wrong.setInvisible();
 
+let home = new Image();
+home.setSrc("./img/buttons/home.png");
+home.setInvisible();
+
+let replay = new Image();
+replay.setSrc("./img/buttons/replay.png");
+replay.setInvisible();
+
+
 let quiz = new Quiz();
 quiz.appendChild('realtime_score', realtime_score);
 quiz.appendChild('progress', progress);
@@ -328,6 +337,13 @@ function chooseAnswer(e) {
             currentScore = 0;
             targetScore = realtime_score.m_nScore;
             animateScore();
+            
+            home.setHeight(temp_size);
+            home.setPosition(-15, 15);
+            replay.setHeight(temp_size);
+            replay.setPosition(15, 15);
+            home.setVisible();
+            replay.setVisible();
             
             return;
         }
