@@ -400,7 +400,7 @@ function endOrReplay(e) {
     if (e.keyCode != 48 && e.keyCode != 49) return;
     //console.log(e.keyCode);
     //console.log(answerIdx);
-    window.removeEventListener("keydown", endOrReplay);
+    window.removeEventListener("keydown", chooseAnswer);
     //stateKeyUp = false;
     //window.addEventListener("keyup", setKeyUp);
     
