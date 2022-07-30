@@ -379,6 +379,8 @@ function chooseAnswer(e) {
             quiz.appendChild('home', home);
             quiz.appendChild('replay', replay);
             
+            window.addEventListener("keydown", endOrReplay);
+            
             return;
         }
 
