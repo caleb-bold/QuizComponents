@@ -344,6 +344,8 @@ function chooseAnswer(e) {
             replay.setPosition(15, 15);
             home.setVisible();
             replay.setVisible();
+            quiz.appendChild('home', home);
+            quiz.appendChild('replay', replay);
             
             return;
         }
