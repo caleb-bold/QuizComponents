@@ -277,6 +277,7 @@ function chooseAnswer(e) {
         //correct_sound.stop();
         correct_sound.pause();
         correct_sound.currentTime = 0;
+        correct_sound.volume = 1.0;
         correct_sound.play();
         correct.setVisible();
         realtime_score.addScore(10);
