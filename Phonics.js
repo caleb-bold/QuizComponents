@@ -274,11 +274,13 @@ function chooseAnswer(e) {
     window.addEventListener("keyup", setKeyUp);
 
     if((e.keyCode == 49 && answerIdx == 0) || (e.keyCode == 48 && answerIdx == 1)) {
-        //correct_sound.stop();
-        correct_sound.pause();
-        correct_sound.currentTime = 0;
+        
+        correct_sound.stop();
+        //correct_sound.pause();
+        //correct_sound.currentTime = 0;
         correct_sound.volume = 1.0;
         correct_sound.play();
+        
         correct.setVisible();
         realtime_score.addScore(10);
     }
